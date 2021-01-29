@@ -1,0 +1,8 @@
+section.content-section.content-section--overflow
+	.container
+		h2.g-title Наши сервисы 
+		.swiper-container.services-js.services
+			.swiper-wrapper
+				each key in services
+					.swiper-slide
+						+servicesItem(key)

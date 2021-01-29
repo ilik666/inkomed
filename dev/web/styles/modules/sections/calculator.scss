@@ -1,0 +1,149 @@
+.calculator {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 25px 15px;
+	justify-content: center;
+	width: 100%;
+	border-radius: 10px;
+	background-color: $lightColor;
+	box-shadow: 0px 4px 8px rgba(66, 103, 178, 0.25);
+
+	&__seconds {
+		width: 100%;
+		margin-bottom: 25px;
+		
+	}
+
+	&__wrap {
+		display: flex;
+		width: 100%;
+		max-width: 1130px;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		@media screen and (max-width: 767px) {
+			margin-bottom: 25px;
+		}
+	}
+
+	.slider-calc {
+		position: relative;
+		width: 100%;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		height: 4px;
+		border: none;
+		background-color: #D1D1D1;
+		&:after, &::before {
+			position: absolute;
+			content: '';
+			display: block;
+			top: 50%;
+			@include box(20px);
+			border-radius: 50%;
+			transform: translateY(-50%);
+			background-color: $mainColor;
+		}
+		&::after { right: 0 }
+		
+		@media screen and (max-width: 991px) {
+			width: 100%;
+			margin-left: 5%;
+			margin-right: 5%;
+			&:after, &::before  {
+				@include box(15px)
+			}
+		}
+	}
+	.noUi-connect {
+		background-color: $mainColor;
+	}
+	.noUi-horizontal .noUi-handle {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include box(47px);
+		top: -23.5px;
+		right: -23px;
+		border-radius: 50%;
+		outline: none;
+		box-shadow: none;
+		border: none;
+		background-color: $mainColor;
+		cursor: pointer;
+		&::after, &::before { display: none }
+		.noUi-touch-area {
+			@include box(40%);
+			border-radius: 50%;
+			background-color: $white;
+		}
+		
+		@media screen and (max-width: 991px) {
+			top: -17.5px;
+			@include box(37px);
+		}
+	}
+	&__min {
+		margin-left: -30px;
+		@media screen and (max-width: 1300px) {
+			margin-left: initial;
+		}
+	}
+	&__max {
+		margin-right: -50px;
+		@media screen and (max-width: 1300px) {
+			margin-right: initial;
+		}
+	}
+	&__price {
+		font-size: rem(30);
+		@media screen and (max-width: 991px) {
+			font-size: rem(24);
+		}
+	}
+	&__bottom {
+		display: flex;
+		margin-top: 5px;
+		width: 100%;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-around;
+		@media screen and (max-width: 767px) {
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			& > * {
+				margin-bottom: 15px;
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+			 }
+			.g-btn { order: 5; 
+				justify-content: center;
+				text-align: center;}
+
+		}
+	}
+	&__alert {
+		margin-bottom: 15px;
+		width: 100%;
+		text-align: center;
+		min-height: 17px;
+		
+		@media screen and (max-width: 767px) {
+			order: 4;
+			min-height: initial;
+			
+			text-align: left !important;
+		}
+	}
+	&__count {
+		font-weight: bold;
+		margin-left: 10px;
+	}
+	&__total-price {
+		margin-left: 10px;
+		color: $accentColor;
+		font-weight: bold;
+		font-size: rem(20);
+	}
+}

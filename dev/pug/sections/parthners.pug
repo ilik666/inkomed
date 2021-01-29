@@ -1,0 +1,8 @@
+section.content-section
+	.container
+		h2.g-title Наши партнеры
+		.swiper-container.parthners-js.parthners
+			.swiper-wrapper
+				each key,idx in Array(6)
+					a(href="#" target='_blank' title='Название партнёра').swiper-slide
+						img(src=`./web/images/content/parthners/part${idx + 1}.png`, alt="Наши партнеры")

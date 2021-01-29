@@ -1,0 +1,36 @@
+form.card
+	.card__img
+		img(src="./web/images/content/photo2.jpg", alt="Иванова Татьяна Владимировна")
+	.card__row
+		a(href="#").g-title Иванова Татьяна Владимировна
+		.card__col
+			.card__list
+				.card__icon
+					+icon('doctor')
+				ul
+					li Акушер, гинеколог
+					li Высшая категория
+					li Стаж работы 17 лет
+			.card__list
+				.card__icon
+					+icon('hospital')
+				ul
+					li
+						a(href="#") Клиника Сова
+					li
+						a(href="#") Клиника Пересвет
+					li
+						a(href="#") Клиника Эксперт
+		
+		.card__col
+			label.calendar
+				input(type="date")
+			
+			select
+				option(value="") Время
+				option(value="") 12:00
+				option(value="") 23:00
+
+		.card__col
+			span.rub 1100
+			button.g-btn(type='submit') Записаться

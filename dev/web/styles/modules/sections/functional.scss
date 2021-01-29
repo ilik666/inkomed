@@ -1,0 +1,13 @@
+.functional {
+	&__item {
+		text-decoration: none;
+		p {
+			color: $black;
+			font-size: rem(20);
+		}
+	}
+	img {
+		object-fit: contain;
+		object-position: center;
+	}
+}

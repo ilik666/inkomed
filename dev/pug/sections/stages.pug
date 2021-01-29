@@ -1,0 +1,9 @@
+section.content-section.content-section--circle
+	.container
+		h2.g-title Этапы оказания медицинской помощи
+
+		ul.stages
+			each key in stages
+				li
+					span=key.title
+					p=key.text

@@ -1,0 +1,12 @@
+extends layout/main
+
+block variables
+	-let title = 'Страница 3'
+
+block content
+	+preview(preview[2])
+	include components/filter-form-with-select
+	include sections/sort-doctor
+	include sections/accordion
+	include sections/services
+	include components/callback

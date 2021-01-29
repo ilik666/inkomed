@@ -1,0 +1,78 @@
+.desicion {
+	&__item {
+		text-decoration: none;
+		background-position: right bottom;
+		background-repeat: no-repeat;
+		&:nth-child(1) {
+			padding-right: 200px;
+			background-position: right 20px bottom;
+			// background-size: 140px;
+			background-image: url('../images/content/desicion/desicion1.png');
+		}
+		&:nth-child(2) {
+			background-image: url('../images/content/desicion/desicion2.png');
+		}
+		&:nth-child(3) {
+			padding-right: 120px;
+			background-position: right -15px bottom;
+			background-image: url('../images/content/desicion/desicion3.png');
+		}
+		&:nth-child(4) {
+			background-size: 220px;
+			background-position: right -50px bottom ;
+			background-image: url('../images/content/desicion/desicion4.png');
+			p { padding-right: 100px }
+		}
+		&:nth-child(5) {
+			background-size: 100%;
+			background-image: url('../images/content/desicion/desicion5.png');
+		}
+		@media screen and (max-width: 767px) {
+			&:nth-child(1) {
+				padding-right: 170px;
+				background-position: right 10px bottom ;
+			}
+			&:nth-child(2) {
+				background-image: url('../images/content/desicion/desicion2-2.png');
+			}
+			
+			&:nth-child(4) {
+				background-size: 250px;
+				background-position: right -70px bottom -10px;
+			}
+		}
+		@media screen and (max-width: 576px) {
+			min-height: 235px !important;
+			&:nth-child(1) {
+				background-size: 140px;
+			}
+		}
+		@media screen and (max-width: 340px) {
+			&:nth-child(1) {
+				padding-right: 0;
+				background-size: 120px;
+				p {
+					padding-right: 150px;
+				}
+			}
+		}
+	}
+	p {
+		font-size: rem(20);
+		color: $black;
+		@media screen and (max-width: 576px) {
+			font-size: rem(16);
+			margin-bottom: 25px;
+		}
+		@media screen and (max-width: 320px) {
+			font-size: rem(14);
+		}
+	}
+	.g-btn {
+		padding-right: 0;
+		padding-left: 0;
+		text-align: center;
+		min-width: 160px;
+		white-space: nowrap;
+	}
+}

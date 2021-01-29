@@ -1,0 +1,47 @@
+extends layout/main
+
+block variables
+	-let title = 'Страница 9'
+
+block content
+	section.content-section
+		.container
+			.content-page
+				.content-page__header
+					h1.g-title.g-title--small Иванов Алексей Александрович
+					ul.breadcrumbs
+						each key in docProfInfo
+							li=key
+				.content-page__left
+					.content-page__sticky
+						img(src="./web/images/content/doc.jpg", alt="ЛОК “СОЛНЕЧНАЯ”")
+
+
+
+				.content-page__right
+					.content-page__list
+						.card__list
+							.card__icon
+								+icon('doctor')
+							ul
+								li Клиника Сова
+								li Стаж работы 22 года
+
+						.card__list
+							.card__icon
+								+icon('hospital')
+							ul
+								li
+									a(href="#") Клиника Сова
+								li
+									a(href="#") Клиника Пересвет
+								li
+									a(href="#") Клиника Эксперт
+
+					.content-page__text
+						p Иванов Алексей Александрович - врач стоматолог, стаж 22 года. Все отзывы о враче. Запись онлайн или по телефону.
+						br
+						p Челюстно-лицевой хирург, хирург-стоматолог. Занимается лечением воспалительных заболеваний и травм челюстно-лицевой области, удалением зубов любой сложности и доброкачественных новообразований, имплантацией.
+
+	include components/filter-form-with-select
+	include components/callback

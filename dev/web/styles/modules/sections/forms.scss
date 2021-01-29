@@ -1,0 +1,252 @@
+input[type='text'],
+input[type='tel'],
+input[type='number'],
+input[type='date'],
+input[type='password'],
+textarea,
+select {
+	width: 100%;
+	line-height: 15px;
+	height: calc(1.5em + .75rem + 2px);
+	padding: .375rem .75rem;
+	line-height: 1.5;
+	background-color: $white;
+	border-radius: 10px;
+	border: 1.5px solid $borderColor;
+}
+
+.label {
+	display: flex;
+	flex-direction: column;
+	&:not(:last-child) { margin-bottom: 15px }
+	span {
+		display: block;
+		margin-bottom: 7px;
+		font-weight: bold;
+	}
+	&--password {
+		position: relative;
+		input { padding-right: 2rem !important;}
+
+	}
+}
+.checked-password {
+	position: absolute;
+	border: none;
+	bottom: 7px;
+	right: 8px;
+	cursor: pointer;
+	box-shadow: none;
+	background-color: transparent;
+	.icon-eye {
+		@include box(20px);
+		fill: $grayColor;
+	}
+	&:hover {
+		.icon-eye { fill: $mainColor }
+	}
+}
+select {
+	width: 100%;
+	appearance: none;
+	padding-right: 1.75rem;
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: right .75rem center;
+	background-image: url('../images/general/arrow-down.svg');
+}
+
+.form {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 35px;
+	width: 100%;
+	align-items: flex-start;
+	justify-content: space-between;
+	border-radius: 10px;
+	background-color: $lightColor;
+	box-shadow: 0px 4px 8px rgba(66, 103, 178, 0.25);
+	@media screen and (max-width: 576px)  {
+		padding: 25px 15px;
+	}
+	&__col {
+		display: flex;
+		width: 48%;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		@media screen and (max-width: 991px) {
+			width: 100%;
+			&:not(:last-child) { margin-bottom: 15px; }
+		}
+	}
+	a {
+		text-decoration: none;
+		&:hover { text-decoration: underline }
+	}
+	.label {
+		width: 48%;
+		&--textarea { width: 100% }
+		textarea {
+			min-height: 115px;
+		}
+		@media screen and (max-width: 576px) {
+			width: 100%;
+		}
+	}
+
+	&__btns {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		justify-content: space-between;
+		margin-top: 22px;
+		@media screen and (max-width: 1199px) {
+			& > .g-btn  {
+				padding-left: 0;
+				padding-right: 0;
+				width: 49%;
+			}
+		}
+		@media screen and (max-width: 767px) {
+			& > * {
+				margin-left: 5px;
+				margin-right: 5px;
+				margin-bottom: 15px;
+				flex: 1 1 auto;
+			}
+		}
+	}
+	p {
+		width: 100%;
+		text-align: center;
+		margin-top: 15px;
+	}
+
+	&__bonus {
+		margin-top: 30px;
+		font-weight: bold;
+		abbr { color: $accentColor }
+		@media screen and (max-width: 767px) { text-align: center }
+	}
+}
+
+
+.calendar {
+	position: relative;
+	&::after {
+		position: absolute;
+	}
+	input {
+		-webkit-appearance: none;
+		
+		appearance: none;
+		min-width: 205px;
+		background-color: #fff;
+		background-size: 25px;
+		background-position: right 12px center;
+		background-repeat: no-repeat;
+		background-image: url('../images/general/calendar.svg');
+
+	}
+}
+
+::-webkit-calendar-picker-indicator {
+	background-repeat: no-repeat;
+	background-image: url('../images/general/back.png');
+	background-color: transparent;
+}
+
+.form__range {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	
+	@media screen and (max-width: 576px) {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		justify-content: space-between;
+		margin-top: 15px;
+		& > label {
+			order: 3;
+		}
+		.range-filter  {
+			margin-right: 10px;
+			margin-left: 10px;
+			width: 100%;
+			min-width: initial;
+			margin-bottom: 15px;
+		}
+	}
+}
+
+.range-filter  {
+	margin-left: 25px;
+	margin-right: 25px;
+	height: 3px;
+	min-width: 330px;
+    border: none;
+	border-radius: 4px;
+	background-color: $borderColor;
+	.noUi-connect { background-color: $mainColor;}
+	.noUi-handle {
+		top: -10px;
+		right: -11px;
+		@include box(23px);
+		border-radius: 50%;
+		&::before,
+		&::after {
+			display: none
+		}
+	}
+}
+
+.filter {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	padding: 25px 15px;
+	margin-bottom: 25px;
+	border-radius: 0 10px 10px 10px;
+	background-color: #fff;
+	box-shadow: 0px 4px 8px rgba(66, 103, 178, 0.25);
+	&__wrap {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		
+		&--small {
+			width: calc(100% - 240px);
+			& > * {
+				width: calc(100% / 3 - 15px);
+				margin-bottom: 15px;
+			}
+			@media screen and (max-width: 991px) {
+				width: 100%;
+			}
+
+			@media screen and(max-width: 767px) {
+				& > * {
+					width: calc(100% / 2 - 15px);
+					margin-bottom: 15px;
+				}
+			}
+
+			@media screen and(max-width: 576px) {
+				& > * {
+					width: 100%;
+				}
+			}
+		}
+	}
+	.g-btn { 
+		margin-left: auto;
+		margin-bottom: 15px;
+		
+		@media screen and (max-width: 991px) {
+			margin: 25px auto 0;
+		}
+	 }
+	.g-title { width: 100% }
+}

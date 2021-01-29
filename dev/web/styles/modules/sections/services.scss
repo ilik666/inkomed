@@ -1,0 +1,47 @@
+.services {
+	.swiper-slide {
+		display: flex;
+		height: auto;
+	}
+	&__item {
+		width: 100%;
+		display: flex;
+		padding: 25px 15px 40px;
+		flex-direction: column;
+		height: auto;
+		border-radius: 10px;
+		transition: all ease .2s;
+		border: 2px solid $borderColor;
+		&:hover {
+			border-color: $mainColor;
+		}
+	}
+	&__img {
+		display: flex;
+		flex: 1 1 auto;
+		border-bottom: 2px solid $black;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-image: url('../images/general/back-services.png');
+		img {
+			margin: auto auto 0;
+			max-width: 100%;
+		}
+	}
+	&__desc {
+		margin-bottom: 35px;
+		font-size: rem(20);
+		@media screen and (max-width: 576px) {
+			font-size: rem(16);
+		}
+	}
+	.g-btn {
+		margin-top: 20px;
+	}
+	@media screen and (max-width: 576px) {
+		max-width: 80%;
+		margin-left: 0;
+		overflow: visible;
+	}
+}

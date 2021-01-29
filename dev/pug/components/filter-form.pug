@@ -1,0 +1,35 @@
+section.content-section
+	.container
+		h2.g-title Запись на организацию медицинской помощи
+		form.form(action="")
+			.form__col
+				label.label
+					span Фамилия
+					input(type="text" placeholder='Иванов')
+				label.label
+					span Имя
+					input(type="text" placeholder='Иван')
+				label.label
+					span Отчество
+					input(type="text" placeholder='Иванович')
+				label.label
+					span Телефон
+					input(type="tel" placeholder='+7 952 540-45-44')
+				label.label
+					span E-mail
+					input(type="text" placeholder='Ivanov@inko-service.ru')
+
+			.form__col
+				label.label.label--textarea
+					span Что вас беспокоит?
+					textarea(placeholder='Меня беспокоит...' )
+
+				.form__btns
+					button.g-btn.g-btn--accent(type='button') Подобрать
+
+			p Нажимая “Организовать”, я принимаю 
+				a(href="#" target='_blank') условия пользовательского соглашения 
+				| и даю согласие на 
+				a(href="#" target='_blank') обработку персональных данных
+		
+		p.form__bonus При заказе услуги “Подбор санаторно-курортного лечения” электронная медицинская карта <abbr>в подарок!</abbr>

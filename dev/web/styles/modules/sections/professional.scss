@@ -1,0 +1,47 @@
+.professionals {
+	position: relative;
+	&__item {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		padding: 10px;
+		border-radius: 10px;
+		transition: all ease .2s;
+		border: 2px solid $borderColor;
+		&:hover {
+			border-color: $mainColor;
+		}
+	}
+	img {
+		margin-bottom: 20px;
+		max-width: 100%;
+		width: 100%;
+		border-radius: 10px;
+	}
+	.g-title { line-height: 24px }
+	ul {
+		margin-bottom: 20px;
+	}
+	li {
+		color: $grayColor;
+		&:not(:last-child) { margin-bottom: 5px }
+	}
+	.g-btn {
+		padding-left: 0;
+		padding-right: 0;
+		width: 100%;
+		min-width: initial;
+	}
+	.rub {
+		display: block;
+		margin-bottom: 20px;
+		font-weight: bold;
+		font-size: 20px;
+	}
+	
+	a {
+		margin-bottom: 10px;
+		text-decoration: none;
+		&:hover { color: $mainColor }
+	 }
+}

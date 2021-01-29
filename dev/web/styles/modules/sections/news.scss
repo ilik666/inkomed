@@ -1,0 +1,38 @@
+.news {
+	&__item {
+		display: block;
+		padding: 25px;
+		color: $black;
+		height: 100%;
+		text-decoration: none;
+		border-radius: 10px;
+		background-color: $lightColor;
+		transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+		&:hover {
+		  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+		}
+		p { 
+			font-size: rem(20);
+			margin-bottom: 15px
+		 }
+	}
+	@media screen and (min-width: 768px) {
+		overflow: visible;
+		.swiper-wrapper {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+			justify-content: space-between;
+		}
+		.swiper-slide {
+			display: flex;
+			flex-direction: column;
+			min-height: 220px;
+			width: calc(50% - 12px);
+			margin-bottom: 24px;
+		}
+	}
+	.date {
+		margin-top: auto;
+	}
+}

@@ -1,0 +1,24 @@
+extends layout/main2
+
+block variables
+	-let title = 'Страница 10'
+
+block content
+	.container
+		.login
+			img(src="./web/images/general/login.png", alt="Вход в личный кабинет")
+
+			form.login-form
+				h1.g-title.g-title--small Вход в личный кабинет
+				
+				label.label
+					span e-mail
+					input(type="text" placeholder='Ivanov@inko-service.ru')
+
+				label.label.label--password
+					span Введите пароль
+					input(type="password")
+					button.checked-password
+						+icon('eye')
+
+				button.g-btn Войти

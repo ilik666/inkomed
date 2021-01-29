@@ -1,0 +1,15 @@
+section.content-section.content-section--overflow
+	.container
+		h2.g-title Удобный интерфейс
+
+	.container
+		.swiper-container.interface-js.interface
+			.swiper-wrapper
+				each key, idx in Array(3)
+					.swiper-slide
+						img(src=`./web/images/content/interface/int${idx + 1}.png`, alt="Удобный интерфейс")
+		// Add Arrows
+		button.swiper-button-next.arrow.arrow--left.interface__arrow-l
+			+icon('prev')
+		button.swiper-button-prev.arrow.arrow--right.interface__arrow-r
+			+icon('next')

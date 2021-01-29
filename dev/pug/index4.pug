@@ -1,0 +1,17 @@
+extends layout/main
+
+block variables
+	-let title = 'Страница 4'
+
+block content
+	+preview(preview[3])
+	include components/filter-form
+	include sections/sort-hotel
+	include sections/accordion
+	include sections/services
+	include components/callback
+
+
+block script
+	script(src='https://api-maps.yandex.ru/2.1/?apikey=ef099eda-cd7a-4002-993c-bb502f3d5b6f&lang=ru_RU' type='text/javascript')
+

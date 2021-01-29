@@ -1,0 +1,15 @@
+form.filter
+	h5.g-title Фильтр и поиск
+
+	.filter__wrap.filter__wrap--small
+		label
+			input(type="text" placeholder='Поиск по названию')
+
+		each key in filterSelect
+			label
+				select
+					option=key
+					option Lorem 1
+					option Lorem 2
+	
+	button.g-btn Применить 

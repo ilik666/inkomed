@@ -1,0 +1,28 @@
+form.card
+	.card__img
+		img(src="./web/images/content/hotel.jpg", alt="Иванова Татьяна Владимировна")
+	.card__row
+		a(href="#").g-title ЛОК "Солнечная" 
+		.card__col
+			.card__list
+				.card__icon
+					+icon('location')
+				p Краснодарский край, г. Геленджик,  ул. Туристическая, 19
+			.card__list
+				.card__icon
+					+icon('hotel')
+				ul
+					li Варианты питания
+					li Варианты размещения
+					li Варианты лечения
+					li Варианты номера
+		.card__col
+			.card__list
+				.card__icon
+					+icon('plus')
+				p лечение органов дыхания, движения, зрения, сердечно-сосудистой системы,опорно-двигательного аппарата, профилактика детской заболеваемости, 
+
+
+		.card__col
+			span.rub от 2500
+			button.g-btn(type='submit') Записаться

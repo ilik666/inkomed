@@ -1,0 +1,9 @@
+section.content-section
+	.container
+		h2.g-title Функционал электронной медицинской карты
+		.grid.functional
+			each key in functionals
+				.grid__item.functional__item
+					img(src=key.imgUrl, alt=key.title)
+					h5.g-title=key.title
+					p=key.text

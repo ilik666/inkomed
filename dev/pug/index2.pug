@@ -1,0 +1,12 @@
+extends layout/main
+
+block variables
+	-let title = 'Страница 2'
+
+block content
+	+preview(preview[1])
+	include sections/stages
+	include components/filter-form.pug
+	include sections/accordion
+	include sections/services
+	include components/callback

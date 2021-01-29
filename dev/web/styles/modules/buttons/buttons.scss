@@ -1,0 +1,74 @@
+.g-btn {
+    position: relative;
+    display: inline-block;
+    min-width: 210px;
+    padding: 10px 25px;
+    color: $white;
+    overflow: hidden;
+    text-align: center;
+    // font-family: $mainFontBold;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: rem(18);
+    border: 2px solid $mainColor;
+    box-shadow: none;
+    border-radius: 10px;
+    background-color: $mainColor;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    &:hover {
+        color: $white;
+        border-color: $mainHoverColor;
+        background-color: $mainHoverColor;
+    }
+    &:active {
+      transform: translateY(2px);
+      border-color: $mainColor;
+      background-color: $mainColor;
+      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    &--accent {
+      border-color: $accentColor;
+      background-color: $accentColor;
+
+      &:hover {
+        border-color: $accentHoverColor;
+        background-color: $accentHoverColor;
+      }
+      
+      &:active {
+        border-color: $accentColor;
+        background-color: $accentColor;
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+    }
+    &--white {
+      color: $mainColor;
+      background-color: #fff;
+      border-color: #DEEBFE;
+      &:hover {
+        border-color: #A6C4F1;
+        background-color: #fff;
+      }
+      
+      &:active {
+        border-color: #A6C4F1;
+        background-color: #fff;
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+    }
+}
+
+// span.ripple {
+// 	position: absolute;
+// 	border-radius: 50%;
+// 	transform: scale(0) ;
+// 	animation: ripple 600ms linear;
+// 	background-color: rgba(255, 255, 255, 0.7);
+// 	opacity: .7;
+// }
+// @keyframes ripple {
+// 	to {
+// 	  transform: scale(4) ;
+// 	  opacity: 0;
+// 	}
+// }

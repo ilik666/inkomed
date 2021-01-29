@@ -1,0 +1,15 @@
+ul.tabs-nav
+	li(data-tab-name="tab-1").tabs-nav__item.is-active Санатории
+	li(data-tab-name="tab-2").tabs-nav__item На карте
+
+
+include filter-hotel
+
+.tabs-content
+	.tabs-content__item.tab-1.is-active.show
+		each key in Array(2)
+			include ../components/card-hotel
+		include ../components/pagination
+
+	.tabs-content__item.tab-2
+		#map(style='width: 100%; height: 500px')

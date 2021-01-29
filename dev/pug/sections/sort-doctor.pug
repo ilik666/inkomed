@@ -1,0 +1,9 @@
+section.content-section.content-section--light
+	.container
+		h2.g-title Подберите врача самостоятельно 
+
+
+		include ../components/filter-doc
+		each key in Array(3)
+			include ../components/card-doc
+		include ../components/pagination

@@ -1,0 +1,13 @@
+.interface {
+	display: block;
+	padding-top: 30px; 
+	width: 100%;
+	max-width: 720px;
+	margin: 0 auto;
+	overflow: visible;
+	img {
+		max-width: 100%;
+		object-fit: contain;
+		object-position: center;
+	}
+}

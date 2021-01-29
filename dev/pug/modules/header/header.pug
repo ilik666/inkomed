@@ -1,0 +1,31 @@
+header.header
+	.container
+		.hide-nav
+			span.hide-nav__line.hide-nav__line--top
+			span.hide-nav__line.hide-nav__line--middle
+			span.hide-nav__line.hide-nav__line--bottom
+
+
+		a(href="/" title='Инко-мед сервис').header__logo.logo
+			+icon('logo')
+			
+		nav.nav
+			each key in nav
+				a(href="#").nav__link=key
+
+		a(href="tel:88001004603").header__phone.phone 8 800 100-46-03
+
+		.header__user
+			.header__auth
+				.header__icon
+					+icon('user')
+				a(href="#") <b> Личный кабинет </b>
+				
+				.header__icon.header__icon--exit
+					a(href="/logout")
+						+icon('exit')
+			
+			.header__active
+				a(href="#") Личный кабинет
+				a(href="#") Электронная медицинская карта
+				a(href="/logout").exit Выход
