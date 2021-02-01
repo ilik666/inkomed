@@ -10,4 +10,11 @@
 		object-fit: contain;
 		object-position: center;
 	}
+	.swiper-slide {
+		transform: scale(.8);
+		transition: all ease .2s;
+		&.swiper-slide-active {
+			 transform: scale(1)
+		}
+	}
 }

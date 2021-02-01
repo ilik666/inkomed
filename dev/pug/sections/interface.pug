@@ -8,6 +8,10 @@ section.content-section.content-section--overflow
 				each key, idx in Array(3)
 					.swiper-slide
 						img(src=`./web/images/content/interface/int${idx + 1}.png`, alt="Удобный интерфейс")
+
+					//- a(href=`./web/images/content/interface/int${idx + 1}.png` data-rel="lightcase:l").swiper-slide
+						img(src=`./web/images/content/interface/int${idx + 1}.png`, alt="Удобный интерфейс")
+
 		// Add Arrows
 		button.swiper-button-next.arrow.arrow--left.interface__arrow-l
 			+icon('prev')

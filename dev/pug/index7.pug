@@ -9,30 +9,19 @@ block content
 			.content-page
 				.content-page__header
 					h1.g-title.g-title--small ЛОК “СОЛНЕЧНАЯ”
-					ul.breadcrumbs
-						each key in hotelInfo
-							li=key
+					+cardInfo(hotelInfo)
+							
 				.content-page__left
 					.content-page__sticky
-						.swiper-container.gallery-top
-							.swiper-wrapper
-								each key in Array(4)
-									.swiper-slide
-										img(src="./web/images/content/s-hotel.jpg", alt="ЛОК “СОЛНЕЧНАЯ”")
-
-						.swiper-container.gallery-thumbs
-							.swiper-wrapper
-								each key in Array(4)
-									.swiper-slide
-										img(src="./web/images/content/s-hotel1.jpg", alt="ЛОК “СОЛНЕЧНАЯ”")
-
-
+						+cardSlider
+						
 				.content-page__right
 					.content-page__list
 						.card__list
 							.card__icon
 								+icon('location')
 							p Краснодарский край, г. Геленджик,  ул. Туристическая, 19
+							
 						.card__list
 							.card__icon
 								+icon('hotel')
@@ -52,6 +41,4 @@ block content
 
 			each key in Array(3)
 				include components/card-hotel
-
-	include components/filter-form-with-select
 	include components/callback

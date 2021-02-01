@@ -1,6 +1,7 @@
 form.card
-	.card__img
-		img(src="./web/images/content/hotel.jpg", alt="Иванова Татьяна Владимировна")
+	input(type="hidden"  name='id' value='1')
+	a(href="#").card__img
+		img(src="./web/images/content/hotel.jpg", alt="ЛОК Солнечная")
 	.card__row
 		a(href="#").g-title ЛОК "Солнечная" 
 		.card__col
@@ -22,7 +23,6 @@ form.card
 					+icon('plus')
 				p лечение органов дыхания, движения, зрения, сердечно-сосудистой системы,опорно-двигательного аппарата, профилактика детской заболеваемости, 
 
-
 		.card__col
 			span.rub от 2500
-			button.g-btn(type='submit') Записаться
+			button.g-btn(type='button' data-btn-modal='booking') Забронировать

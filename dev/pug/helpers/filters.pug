@@ -1,0 +1,45 @@
+mixin filterForm(options)
+    section.content-section
+        .container
+            h2.g-title=options.title
+            form.form(action="")
+                .form__col
+                    label.label
+                        span Фамилия
+                        input(type="text" placeholder='Иванов')
+                    label.label
+                        span Имя
+                        input(type="text" placeholder='Иван')
+                    label.label
+                        span Отчество
+                        input(type="text" placeholder='Иванович')
+                    label.label
+                        span Телефон
+                        input(type="tel" placeholder='+7 952 540-45-44')
+                    label.label
+                        span E-mail
+                        input(type="text" placeholder='Ivanov@inko-service.ru')
+                    if(options.select)
+                        label.label
+                            span Специализация врача
+                            select(name="")
+                                each key in Array(3)
+                                    option(value="Ортопед") Ортопед
+
+                .form__col
+                    label.label.label--textarea
+                        span Что вас беспокоит?
+                        textarea(placeholder='Меня беспокоит...' )
+
+                    .form__btns
+                        button.g-btn.g-btn--accent(type='button')=options.btn
+                        if(options.consult)
+                            button.g-btn(type='button') Бесплатная консультация
+
+                p Нажимая “#{options.btn}”, я принимаю 
+                    a(href="#" target='_blank') условия пользовательского соглашения 
+                    | и даю согласие на 
+                    a(href="#" target='_blank') обработку персональных данных
+            
+            p.form__bonus При заказе услуги “#{options.type}” электронная медицинская карта <abbr>в подарок!</abbr> 
+                a(href="#" target='_blank') Подробнее

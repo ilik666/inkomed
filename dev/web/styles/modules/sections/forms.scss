@@ -14,7 +14,7 @@ select {
 	border-radius: 10px;
 	border: 1.5px solid $borderColor;
 }
-
+textarea { height: initial }
 .label {
 	display: flex;
 	flex-direction: column;
@@ -249,4 +249,8 @@ select {
 		}
 	 }
 	.g-title { width: 100% }
+}
+
+@include placeholder {
+	color: #b7b9ba
 }

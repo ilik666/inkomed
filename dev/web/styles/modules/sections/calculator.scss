@@ -106,21 +106,34 @@
 		width: 100%;
 		flex-wrap: wrap;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: space-between;
 		@media screen and (max-width: 767px) {
 			flex-direction: column;
 			justify-content: flex-start;
 			align-items: flex-start;
-			& > * {
+			& > *:not(.g-btn) {
 				margin-bottom: 15px;
 				width: 100%;
 				display: flex;
 				justify-content: space-between;
 			 }
-			.g-btn { order: 5; 
+			.g-btn { 
+				order: 5; 
+				margin: 0 auto 15px;
 				justify-content: center;
 				text-align: center;}
 
+		}
+		& > p {
+			text-align: center;
+			width: 33.33%;
+			@media screen and (max-width: 991px) {
+				text-align: left;
+				&:last-child { text-align: right }
+			}
+			@media screen and (max-width: 767px) {
+				width: 100%;
+			}
 		}
 	}
 	&__alert {

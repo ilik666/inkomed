@@ -9,14 +9,13 @@ block content
 			.content-page
 				.content-page__header
 					h1.g-title.g-title--small Иванов Алексей Александрович
-					ul.breadcrumbs
-						each key in docProfInfo
-							li=key
+					+cardInfo(docProfInfo)
+
 				.content-page__left
 					.content-page__sticky
-						img(src="./web/images/content/doc.jpg", alt="ЛОК “СОЛНЕЧНАЯ”")
-
-
+						picture
+							source(srcset='./web/images/content/doc.jpg' media='(min-width: 576px)')
+							img(src='./web/images/content/doc-1.jpg' alt='Иванов Алексей Александрович')
 
 				.content-page__right
 					.content-page__list
@@ -24,7 +23,7 @@ block content
 							.card__icon
 								+icon('doctor')
 							ul
-								li Клиника Сова
+								li Высшая категория
 								li Стаж работы 22 года
 
 						.card__list
@@ -43,5 +42,5 @@ block content
 						br
 						p Челюстно-лицевой хирург, хирург-стоматолог. Занимается лечением воспалительных заболеваний и травм челюстно-лицевой области, удалением зубов любой сложности и доброкачественных новообразований, имплантацией.
 
-	include components/filter-form-with-select
+	+filterForm(filterFormContents[4])
 	include components/callback

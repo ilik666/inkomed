@@ -1,5 +1,6 @@
 form.card
-	.card__img
+	input(type="hidden" name='id' value='1')
+	a(href="#").card__img
 		img(src="./web/images/content/photo2.jpg", alt="Иванова Татьяна Владимировна")
 	.card__row
 		a(href="#").g-title Иванова Татьяна Владимировна
@@ -24,13 +25,15 @@ form.card
 		
 		.card__col
 			label.calendar
-				input(type="date")
+				input(type="date" name='date' required)
 			
-			select
+			select(name='time' required)
 				option(value="") Время
-				option(value="") 12:00
-				option(value="") 23:00
+				option(value="12:00") 12:00
+				option(value="13:00") 13:00
+				option(value="14:00") 14:00
+				option(value="23:00") 23:00
 
 		.card__col
 			span.rub 1100
-			button.g-btn(type='submit') Записаться
+			button.g-btn(type='button' data-btn-modal='appointment-doctor') Записаться

@@ -6,20 +6,20 @@ mixin icon(name,mod)
 		svg(class="svg-sprite-icon icon-" + name)
 			use(xlink:href="web/images/sprite/symbol/sprite.svg#" + name)
 
-
+// Список ссылок соц сетей
 mixin socials(array)
 	each key in array
 		a(href="#" target='_blank' title=key).socials__link
 			+icon(key)
 
-
+// Главный топ баннер
 mixin preview(options, title)
 	section.content-section
 		.container
 			if(title)
 				h2.g-title=title
 			.preview
-				.preview__info(class=`${!options.size ? 'preview__info--right': ''}`)
+				.preview__info(class=`${!options.size ? 'preview__info--right' : ''}`)
 					if(options.size)
 						h1.g-title=options.title
 					else
@@ -28,7 +28,6 @@ mixin preview(options, title)
 						p=key
 				.img
 					img(src=options.imgUrl , alt=options.title, title=options.title)
-
 
 mixin servicesItem(options)
 	.services__item
@@ -41,15 +40,16 @@ mixin servicesItem(options)
 
 mixin smallCard(options)
 	.professionals__item
-		img(src='./web/images/content/photo.jpg', alt=options.title)
-		a(href="#").g-title=options.title
-
+		a(href="#")
+			img(src='./web/images/content/photo.jpg', alt=options.title)
+			h6.g-title=options.title
 		ul
 			li Терапевт
 			li Высшая категория
 			li Стаж работы 15 лет
 		span.rub 1 400
 		button.g-btn Записаться
+
 
 mixin sliderProf(title)
 	section.content-section
@@ -60,6 +60,18 @@ mixin sliderProf(title)
 					each key in Array(6)
 						.swiper-slide
 							+smallCard({title: 'Иванова Татьяна Владимировна'})
-
 			.text-center
 				a(href="#") Все врачи
+
+
+mixin desicionItem(options)
+	.desicion__item.grid__item
+		h5.g-title=options.title
+		p=options.descr
+		if(options.btn)
+			a(href="#").g-btn.g-btn--accent=options.btn
+
+mixin cardInfo(arr)
+	ul.card-list
+		each key in arr
+			li=key

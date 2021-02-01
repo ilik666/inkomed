@@ -501,7 +501,7 @@ h6 {
   }
 }
 
-.breadcrumbs {
+.card-list {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -536,18 +536,21 @@ h6 {
 .login {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  min-height: calc(100vh - 85px);
   justify-content: space-around;
   align-items: center;
-  .g-title {
-    margin-bottom: 50px;
-  }
+  padding: 30px 0;
+  width: 100%;
   .g-btn { margin-top: 25px }
-  @media screen and (max-width: 991px) {
+
+  & > * { width: 45%; }
+
+  img {max-width: 40% }
+
+  @media screen and (max-width: 767px) {
     min-height: initial;
-    margin-top: 70px;
     align-items: flex-start;
+    
+    & > * { width:  100% }
     img { display: none }
   }
 }
@@ -598,3 +601,4 @@ h6 {
     font-weight: bold;
   }
 }
+

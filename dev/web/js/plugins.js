@@ -50,7 +50,7 @@ function _createModal(options) {
 					<span class="vmodal__title" data-title='true'>${ options.title || 'Модальное окно'}</span>
 					${options.closable ? `<span class="vmodal__close" data-close="true">&times;</span>` : ''}
 				</div>
-				<div class="vmodal__body" data-content="true">
+				<div class="vmodal__body ${options.bodyClass || ''}" data-content="true">
 					${ options.content || ''}
 				</div>
 			</div>
@@ -84,9 +84,9 @@ $plugins.modal = function (options) {
 			closing = true;
 			$modal.classList.remove('open');
 			$modal.classList.add('hide');
-			document.body.classList.remove('show-modal');
 			setTimeout(() => {
 				$modal.classList.remove('hide');
+				document.body.classList.remove('show-modal');
 				closing = false
 			}, ANIMATION_SPEED)
 		}

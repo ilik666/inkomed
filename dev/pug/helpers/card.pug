@@ -1,0 +1,21 @@
+mixin cardSlider
+	.swiper-container.gallery-top
+		.swiper-wrapper
+			each key in Array(3)
+				.swiper-slide
+					picture
+						source(srcset='./web/images/content/slide-1.jpg' media='(min-width: 576px)')
+						img(src='./web/images/content/slide-1-1.jpg' alt='ЛОК “СОЛНЕЧНАЯ”')
+				.swiper-slide
+					picture
+						source(srcset='./web/images/content/slide-2.jpg' media='(min-width: 576px)')
+						img(src='./web/images/content/slide-2-1.jpg' alt='ЛОК “СОЛНЕЧНАЯ”')
+			
+	.swiper-container.gallery-thumbs
+		.swiper-wrapper
+			each key in Array(3)
+				.swiper-slide
+					img(src="./web/images/content/small-slide-1.jpg", alt="ЛОК “СОЛНЕЧНАЯ”")
+				.swiper-slide
+					img(src="./web/images/content/small-slide-2.jpg", alt="ЛОК “СОЛНЕЧНАЯ”")
+			

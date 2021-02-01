@@ -34,6 +34,24 @@ document.addEventListener('DOMContentLoaded', () => {
 	// if(buttons.length) buttons.forEach( el => el.addEventListener('click', createRipple) )
 	
 
+	/**
+	 * Return separator price
+	 * example - 1000 return 1 000} arg 
+	 * @param {string}
+	 * @returns {string}
+	 * 
+	 */
+	const priceSeparatorMethod = (str) => {
+		return str.split('')
+			.reverse()
+			.join('')
+			.replace(/(.{3})/g, '$1 ')
+			.split('')
+			.reverse()
+			.join('')
+			.replace(/\.\d+/, '')
+	} 
+
 	const mobileMenuList = document.querySelector('.mobile__change')
 	const burgerBtn = document.querySelector('.hide-nav');
 	const headerUserBlock = document.querySelector('.header__user');
@@ -188,13 +206,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	})
 
-	
-    var galleryThumbs = new Swiper('.gallery-thumbs', {
-		
+    let galleryThumbs = new Swiper('.gallery-thumbs', {
 		slidesPerView: 4,
 		// loop: true,
 		freeMode: true,
-		loopedSlides: 5, //looped slides should be the same
+		loopedSlides: 5, 
 		watchSlidesVisibility: true,
 		watchSlidesProgress: true,
 		breakpoints: {
@@ -203,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	  });
 
-	  var galleryTop = new Swiper('.gallery-top', {
+	  let galleryTop = new Swiper('.gallery-top', {
 		spaceBetween: 10,
 		// loop: true,
 		loopedSlides: 5,
@@ -340,6 +356,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		address: 'Краснодарский край, г. Геленджик, ул. Туристическая, 19 '
 	}
 
+	/**
+	 * Create mark for yandex map
+	 * @param {Object} options 
+	 * @returns {string} 
+	 */
 	const createMarkForMap = (options) => {
 		return `
 			<div class='map-content'>
@@ -415,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			records: '15',
 			title: 'Внесение данных о Вашем здоровье профессиональным ассистентом',
 			second: 'Рекомендуем на начальном этапе использования ЭМК',
-			aletText: ''
+			aletText: 'Количество записей внесенных самостоятельно не ограничено'
 		 },
 		2000: {
 			records: '35',
@@ -433,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			records: '85',
 			title: 'Внесение данных о Вашем здоровье профессиональным ассистентом',
 			second: 'Рекомендуем на начальном этапе использования ЭМК',
-			aletText: ''
+			aletText: 'Количество записей внесенных самостоятельно не ограничено'
 		},
 		5000: {
 			records: 'не ограничено',
@@ -475,6 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		range: creatObjectForRangeSlider(paramsForRange, _totalPriceInCalculate)
 	};
 
+
 	calcInputSlider && noUiSlider.create(calcInputSlider, _obj);
 	
 	calcInputSlider && calcInputSlider.noUiSlider.on('update', function (values, handle) {
@@ -485,34 +507,122 @@ document.addEventListener('DOMContentLoaded', () => {
 		calcAlertText.textContent = keyCalcParam.aletText
 		calcCountRecords.textContent = keyCalcParam.records
 
-		calcPrice.textContent = values[handle]
-									.split('')
-									.reverse()
-									.join('')
-									.replace(/(.{3})/g, '$1 ')
-									.split('')
-									.reverse()
-									.join('')
-									.replace(/\.\d+/, '')
+		calcPrice.textContent = priceSeparatorMethod(values[handle])
 
 	});
 
 	let showHiddenBlock = document.querySelector('.show-block')
 	let hiddenBlock = document.querySelector('.hidden')
+
 	showHiddenBlock && showHiddenBlock.addEventListener('click', function (e) {
 		e.preventDefault();
 		hiddenBlock.classList.toggle('show')
 		this.classList.toggle('active')
 	})
 
-	let showPasswordBtns = document.querySelectorAll('.checked-password')
-
-	showPasswordBtns && showPasswordBtns.forEach( el => {
-		el.addEventListener('click', function(e) {
+	document.addEventListener('click', (e) => {
+		if(e.target.closest('.checked-password')) {
 			e.preventDefault();
 			let inputPassword = e.target.closest('button').previousElementSibling;
-			inputPassword.type == 'password' ? inputPassword.type = 'text' : inputPassword.type = 'password'
-		})
+
+			inputPassword.type == 'password' ?
+				inputPassword.type = 'text' :
+				inputPassword.type = 'password';
+		}
+	})
+
+	// Вызовы модалок
+	// Вся разметка модалок лежит в ./web/js/elements.js
+
+	let modalElem;
+
+	document.addEventListener('click', (e) => {
+		if(e.target.closest('[data-btn-modal]')) {
+			e.preventDefault();
+			const datTarget = e.target.closest('[data-btn-modal]').dataset.btnModal;
+
+			switch(datTarget) {
+				case 'login':
+					modalElem = $plugins.modal({
+						title: 'Вход в личный кабинет',
+						closable: true,
+						width: '1000px',
+						content: $globalHtmlElements.modalLogin
+					})
+					setTimeout( () => modalElem.open(), 300);
+					break;
+
+				case 'callback':
+					modalElem = $plugins.modal({
+						title: 'Бесплатная консультация',
+						closable: true,
+						width: '450px',
+						content: $globalHtmlElements.modalCallback
+					})
+					setTimeout( () => modalElem.open(), 300);
+					break;
+
+				case 'appointment-doctor':
+					let formDoctorParent = e.target.closest('form');
+					let formData = new FormData(formDoctorParent);
+
+					// Заменить на актуальную инфу о докторе по айдишнику
+					let getDoctorApiParams = {
+						id: formData.get('id'),
+						name: 'Иванова Татьяна Владимировна',
+						secondDescr: 'Акушер, гинеколог в Клинике “Сова“',
+						imgUrl: './web/images/content/modal-doc.jpg',
+						specialisation: 'Акушер, гинеколог',
+						category: 'Высшая',
+						experience: '17 лет',
+						cost: '2000 руб (первичный приём)',
+						times: ['12:00', '13:00', '14:00', '23:00'],
+						selectedDate: formData.get('date'),
+						selectedTime: formData.get('time'),
+					}
+
+					modalElem = $plugins.modal({
+						title: 'Запись на прием к врачу',
+						closable: true,
+						width: '600px',
+						bodyClass: 'vmodal__body--p',
+						content: $globalHtmlElements.createModalAppointmentDoctor(getDoctorApiParams)
+					})
+					setTimeout( () => modalElem.open(), 200);
+
+					break;
+
+				case 'booking':
+					let formBookingParent = e.target.closest('form');
+
+					let formDataBooking = new FormData(formBookingParent);
+
+					let getHotelApiParams = {
+						id: formDataBooking.get('id'),
+						name: 'ЛОК “СОЛНЕЧНАЯ”',
+						address: 'Краснодарский край,г. Геленджик, ул. Туристическая, 19',
+						imgUrl: './web/images/content/modal-hot.jpg',
+						cost: '2000 руб',
+						treatment: [1,2,3],
+						food: [1,2,3]
+
+					}
+
+					modalElem = $plugins.modal({
+						title: 'Заявка на бронирование',
+						closable: true,
+						width: '600px',
+						bodyClass: 'vmodal__body--p',
+						content: $globalHtmlElements.createModalBooking(getHotelApiParams)
+					})
+
+					setTimeout( () => modalElem.open(), 300);
+					break;
+
+				default:
+					return;
+			}
+		}
 	})
 
 })
@@ -572,4 +682,4 @@ $(document).ready(function() {
 
 
 
-// Держись мужик )
+// Держись мужик ) DRY KISS YAGNI xD - ya takoy ne znay
