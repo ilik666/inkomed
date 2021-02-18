@@ -1,12 +1,14 @@
+//Так же можешь хранить эти модалки у себя во View и подтягивать аяксом с параметрами!!!
 let $globalHtmlElements = {};
 window.$globalHtmlElements = $globalHtmlElements;
 
+// Модальное окно для Логина
 $globalHtmlElements.modalLogin = `
     <div class='login'>
         <img src="./web/images/general/login.png", alt="Вход в личный кабинет">
         <form>
             <label class='label'>
-                <span>E-mail</span>
+                <span>Email</span>
                 <input type='text' name='email' placeholder='Ivanov@inko-service.ru'>
             </label>
             <label class='label label--password'>
@@ -22,8 +24,10 @@ $globalHtmlElements.modalLogin = `
         </form>
     </div> `
 
+// Модальное окно обратной связи
 $globalHtmlElements.modalCallback = `
-    <form>
+    <form class='form-modal'>
+        <input type='hidden' name='id'>
         <label class='label'>
             <span>Фамилия</span>
             <input type='text' name='first-name' placeholder='Иванов'>
@@ -37,16 +41,23 @@ $globalHtmlElements.modalCallback = `
             <input type='text' name='last-name' placeholder='Иванович'>
         </label>
         <label class='label'>
+            <span>Email</span>
+            <input type='text' name='mail' placeholder='Иван@inko-med.ru'>
+        </label>
+        <label class='label'>
             <span>Телефон</span>
             <input type='tel' name='phone' placeholder='+7 952 540-45-44'>
         </label>
-        <label class='label'>
-            <span>Что Вас беспокоит? </span>
-            <textarea rows='3' name='text' placeholder='Меня беспокоит...'></textarea>
-        </label>
-        <button type='submit' class='g-btn'> Отправить </button> 
+        <button type='submit' class='g-btn g-btn--accent'> Оставить заявку </button> 
+        <p class='form__bonus'>
+            Нажимая “Оставить заявку”, я принимаю 
+            <a href='#'> условия пользовательского соглашения </a>
+            и даю согласие на 
+            <a href='#'> обработку персональных данных </a>
+        </p>
     </form> `
 
+// Создание шапки с картинкой в модалке
 const createHeaderAppointment = (arg) => {
     return `
         <div class='modal-card'>
@@ -66,6 +77,8 @@ const createHeaderAppointment = (arg) => {
     `
 }
 
+
+// Создание динамическое  селектов времени!
 const createOptionElement = (arg, selectedTime = null) => {
     let _str = '';
     arg.forEach(time => {
@@ -77,6 +90,7 @@ const createOptionElement = (arg, selectedTime = null) => {
     return _str;
 }
 
+// Модальное окно запись к врачу
 $globalHtmlElements.createModalAppointmentDoctor = (options) => {
     return `
         ${ createHeaderAppointment(options) }
@@ -95,7 +109,7 @@ $globalHtmlElements.createModalAppointmentDoctor = (options) => {
                 <input type='text' name='last-name' placeholder='Иванович'>
             </label>
             <label class='label'>
-                <span>e-mail</span>
+                <span>Email</span>
                 <input type='text' name='email' placeholder='Ivanov@inko-service.ru'>
             </label>
             <label class='label'>
@@ -131,7 +145,7 @@ $globalHtmlElements.createModalAppointmentDoctor = (options) => {
         </form> `
 }
 
-
+// Модальное окно для бронирование Отеля
 $globalHtmlElements.createModalBooking = (options) => {
     return `
         ${ createHeaderAppointment(options) }
@@ -150,7 +164,7 @@ $globalHtmlElements.createModalBooking = (options) => {
                 <input type='text' name='last-name' placeholder='Иванович'>
             </label>
             <label class='label'>
-                <span>e-mail</span>
+                <span>Email</span>
                 <input type='text' name='email' placeholder='Ivanov@inko-service.ru'>
             </label>
             <label class='label'>
@@ -207,13 +221,72 @@ $globalHtmlElements.createModalBooking = (options) => {
                 </label>
             </div>
 
-            <button type='submit' class='g-btn g-btn--accent'> Забронировать </button> 
+            <div class='date-wrap'>
+                <label class='calendar'>
+                    <span>Возраст детей (через запятую)</span>
+                    <input type='text' name='child'>
+                </label>
+                <div class='calendar'>
+                    <button type='submit' class='g-btn g-btn--accent'> Отправить заявку </button> 
+                </div>
+            </div>
 
             <p class='form__bonus'>
-                Нажимая “Записаться на прием”, я принимаю 
+                Нажимая “Отправить заявку”, я принимаю 
                 <a href='#'> условия пользовательского соглашения </a>
                 и даю согласие на 
                 <a href='#'> обработку персональных данных </a>
             </p>
         </form> `
+}
+
+$globalHtmlElements.createModalBuyCard = (price, sum) => {
+    return `
+        <form class='form-modal'>
+            <input type='hidden' name='id'>
+
+            <div class='modal-buy'>
+                <div class='card__icon'>
+                    <svg class="svg-sprite-icon icon-buy-card">
+                        <use xlink:href="web/images/sprite/symbol/sprite.svg#buy-card"></use>
+                    </svg>
+                </div>
+                <div class='modal-buy__sum'>
+                    <span>Внесение данных асистентом </span>
+                    <br>
+                    <span> Количество записей: ${sum} </span>
+                </div>
+                <span class='rub'> ${price} </span>
+            </div>
+
+            <span class="vmodal__title vmodal__title--content" style='width: 100%;'>Данные плательщика</span>
+
+            <label class='label'>
+                <span>Фамилия</span>
+                <input type='text' name='first-name' placeholder='Иванов'>
+            </label>
+            <label class='label'>
+                <span>Имя</span>
+                <input type='text' name='name' placeholder='Иван'>
+            </label>
+            <label class='label'>
+                <span>Отчество</span>
+                <input type='text' name='last-name' placeholder='Иванович'>
+            </label>
+            <label class='label'>
+                <span>Email</span>
+                <input type='text' name='mail' placeholder='Иван@inko-med.ru'>
+            </label>
+            <label class='label'>
+                <span>Телефон</span>
+                <input type='tel' name='phone' placeholder='+7 952 540-45-44'>
+            </label>
+            <button type='submit' class='g-btn g-btn--accent'> Оплатить </button> 
+            <p class='form__bonus'>
+                Нажимая “Оплатить”, я принимаю 
+                <a href='#'> условия пользовательского соглашения </a>
+                и даю согласие на 
+                <a href='#'> обработку персональных данных </a>
+            </p>
+        </form>`
 }

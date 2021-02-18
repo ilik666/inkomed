@@ -4,25 +4,30 @@ form.card
 		img(src="./web/images/content/hotel.jpg", alt="ЛОК Солнечная")
 	.card__row
 		a(href="#").g-title ЛОК "Солнечная" 
+		
+		span.card__second Травмотология и ортопедия · Детская хирургия · Артроскопия · Эндопротезирование · Нейрохирургия
 		.card__col
 			.card__list
 				.card__icon
 					+icon('location')
 				p Краснодарский край, г. Геленджик,  ул. Туристическая, 19
+				
+			.card__list
+				.card__icon
+					+icon('dinner')
+				p Без питания, только завтрак, всё включено
+		.card__col
 			.card__list
 				.card__icon
 					+icon('hotel')
 				ul
-					li Варианты питания
-					li Варианты размещения
-					li Варианты лечения
-					li Варианты номера
-		.card__col
-			.card__list
-				.card__icon
-					+icon('plus')
-				p лечение органов дыхания, движения, зрения, сердечно-сосудистой системы,опорно-двигательного аппарата, профилактика детской заболеваемости, 
+					li: a(href="#")  Одноместный стандарт
+					li: a(href="#")  Двухместный стандарт
+					li: a(href="#")  Трехместный стандарт
+					li: a(href="#")  Одноместный люкс
+					li: a(href="#")  Двухместный люкс
+					li: a(href="#")  Трехместный люкс
 
 		.card__col
-			span.rub от 2500
-			button.g-btn(type='button' data-btn-modal='booking') Забронировать
+			//- span.rub от 2500
+			button.g-btn(type='button' data-btn-modal='booking') Подробнее

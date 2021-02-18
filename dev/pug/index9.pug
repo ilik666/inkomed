@@ -6,7 +6,7 @@ block variables
 block content
 	section.content-section
 		.container
-			.content-page
+			.content-page.content-page--small
 				.content-page__header
 					h1.g-title.g-title--small Иванов Алексей Александрович
 					+cardInfo(docProfInfo)
@@ -15,7 +15,7 @@ block content
 					.content-page__sticky
 						picture
 							source(srcset='./web/images/content/doc.jpg' media='(min-width: 576px)')
-							img(src='./web/images/content/doc-1.jpg' alt='Иванов Алексей Александрович')
+							img(src='./web/images/content/doc.jpg' alt='Иванов Алексей Александрович')
 
 				.content-page__right
 					.content-page__list
@@ -30,12 +30,9 @@ block content
 							.card__icon
 								+icon('hospital')
 							ul
-								li
-									a(href="#") Клиника Сова
-								li
-									a(href="#") Клиника Пересвет
-								li
-									a(href="#") Клиника Эксперт
+								li: a(href="#") Клиника Сова
+								li: a(href="#") Клиника Пересвет
+								li: a(href="#") Клиника Эксперт
 
 					.content-page__text
 						p Иванов Алексей Александрович - врач стоматолог, стаж 22 года. Все отзывы о враче. Запись онлайн или по телефону.

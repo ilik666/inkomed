@@ -66,15 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 
 	// Сорри дизайн непредсказуемый )
-	if(document.documentElement.clientWidth	< 992) {
-		(headerNavBlock && headerUserBlock) && headerNavBlock.insertAdjacentElement('afterbegin', headerUserBlock);
-		(headerNavBlock && mobileMenuList) && headerNavBlock.insertAdjacentElement('beforeend', mobileMenuList);
-	} else {
-		(headerContainer && headerUserBlock) && headerContainer.insertAdjacentElement('beforeend', headerUserBlock);
-		(footerContainer && mobileMenuList) && footerContainer.insertAdjacentElement('afterbegin', mobileMenuList);
-	}
-
-	window.addEventListener('resize', function() {
+	const changePositionElements = () => {
 		if(document.documentElement.clientWidth	< 992) {
 			(headerNavBlock && headerUserBlock) && headerNavBlock.insertAdjacentElement('afterbegin', headerUserBlock);
 			(headerNavBlock && mobileMenuList) && headerNavBlock.insertAdjacentElement('beforeend', mobileMenuList);
@@ -82,6 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
 			(headerContainer && headerUserBlock) && headerContainer.insertAdjacentElement('beforeend', headerUserBlock);
 			(footerContainer && mobileMenuList) && footerContainer.insertAdjacentElement('afterbegin', mobileMenuList);
 		}
+	}
+	changePositionElements()
+
+	window.addEventListener('resize', function() {
+		changePositionElements()
 	})
 
 	/**
@@ -424,6 +421,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	const calcAlertText = document.querySelector('.calculator__alert');
 	const calcInputSlider = document.querySelector('.slider-calc');
 
+	const calcInputPrice = document.querySelector('[name="calculator"]')
+	const calcInputMaking = document.querySelector('[name="making"]')
+ 
 	// Такие параметры ожидаются при формирование параметров калькулятора
 	const paramsForRange = {
 		300: {
@@ -507,6 +507,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		calcAlertText.textContent = keyCalcParam.aletText
 		calcCountRecords.textContent = keyCalcParam.records
 
+		calcInputPrice.value = priceSeparatorMethod(values[handle])
+		calcInputMaking.value = keyCalcParam.records
+
 		calcPrice.textContent = priceSeparatorMethod(values[handle])
 
 	});
@@ -556,7 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					modalElem = $plugins.modal({
 						title: 'Бесплатная консультация',
 						closable: true,
-						width: '450px',
+						width: '550px',
 						content: $globalHtmlElements.modalCallback
 					})
 					setTimeout( () => modalElem.open(), 300);
@@ -575,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						specialisation: 'Акушер, гинеколог',
 						category: 'Высшая',
 						experience: '17 лет',
-						cost: '2000 руб (первичный приём)',
+						cost: '2000 ₽ (первичный приём)',
 						times: ['12:00', '13:00', '14:00', '23:00'],
 						selectedDate: formData.get('date'),
 						selectedTime: formData.get('time'),
@@ -602,7 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						name: 'ЛОК “СОЛНЕЧНАЯ”',
 						address: 'Краснодарский край,г. Геленджик, ул. Туристическая, 19',
 						imgUrl: './web/images/content/modal-hot.jpg',
-						cost: '2000 руб',
+						cost: '2000 ₽/сутки',
 						treatment: [1,2,3],
 						food: [1,2,3]
 
@@ -616,6 +619,17 @@ document.addEventListener('DOMContentLoaded', () => {
 						content: $globalHtmlElements.createModalBooking(getHotelApiParams)
 					})
 
+					setTimeout( () => modalElem.open(), 300);
+					break;
+				case 'buy-card':
+					modalElem = $plugins.modal({
+						title: 'Электронная медицинская карта',
+						closable: true,
+						width: '600px',
+						bodyClass: 'vmodal__body--p',
+						content: $globalHtmlElements.createModalBuyCard(calcInputPrice.value, calcInputMaking.value)
+					})
+						
 					setTimeout( () => modalElem.open(), 300);
 					break;
 
@@ -632,7 +646,7 @@ $(document).ready(function() {
 	$('a[data-rel^=lightcase]').lightcase({
 		maxWidth: 1850,
 		maxHeight: 1000
-	  });
+	});
 })
  
 

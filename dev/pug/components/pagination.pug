@@ -3,12 +3,11 @@ ul.pagination
 		if(idx == 0)
 			li.active #{idx + 1}
 		else
-			li
-				a(href="#") #{idx + 1}
-	li 
-		a(href="#") ...
-	li 
-		a(href="#") 99
+			li: a(href="#") #{idx + 1}
+			
+	li: a(href="#") ...
+	li: a(href="#") 99
+
 	li.last
 		a(href="#")
 			+icon('arrow-right')

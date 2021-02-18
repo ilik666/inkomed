@@ -3,7 +3,7 @@
 	display: grid;
 	margin-bottom: 30px;
 	grid-template-columns: 40% 1fr;
-	grid-template-rows: minmax(100px, max-content);
+	grid-template-rows: minmax(50px, max-content);
 	// grid-template-rows: auto;
 	// gap: 50px;
 	grid-gap: 30px;
@@ -11,6 +11,9 @@
 		"a b "
 		"a c"
 	;
+	&--small {
+		grid-template-columns: 340px 1fr;
+	}
 	@media screen and (max-width: 1199px) {
 		grid-gap: 25px;
 		// grid-template-columns: 45% 1fr;
@@ -43,13 +46,19 @@
 		margin-bottom: 25px;
 		justify-content: space-between;
 		.card__list { width: 50% }
+		.card__col {
+			width: 49%;
+			max-width: 100%;
+			.card__list { width: 100% }
+		}
 		@media screen and (max-width: 991px) {
-			display: block;
+			// display: block;
 			.card__list { width: 100% }
 		}
 		@media screen and (max-width: 767px) {
 			display: flex;
 			.card__list { width: 49% }
+			.card__col { width: 100% }
 		}
 		@media screen and (max-width: 576px) {
 			display: block;

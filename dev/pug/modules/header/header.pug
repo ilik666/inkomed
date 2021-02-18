@@ -5,8 +5,7 @@ header.header
 			span.hide-nav__line.hide-nav__line--middle
 			span.hide-nav__line.hide-nav__line--bottom
 
-		a(href="/" title='Инко-мед сервис').header__logo.logo
-			+icon('logo')
+		a(href="/" title='Инко-мед сервис').header__logo.logo: +icon('logo')
 			
 		nav.nav
 			each key in nav
@@ -16,13 +15,11 @@ header.header
 
 		.header__user
 			.header__auth
-				.header__icon
-					+icon('user')
+				.header__icon: +icon('user')
 				a(href="#" data-btn-modal='login') <b> Личный кабинет </b>
 				
 				.header__icon.header__icon--exit
-					a(href="/logout")
-						+icon('exit')
+					a(href="/logout"): +icon('exit')
 			
 			.header__active
 				a(href="#") Личный кабинет
